@@ -4,13 +4,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MahasiswaViewHolder extends RecyclerView.ViewHolder {
+public class MahasiswaViewHolder extends RecyclerView.ViewHolder
+{
     public ImageView _jkImageView;
     public TextView _jkTextView, _jpTextView, _namaTextView, _nimTextView, _noTextView;
 
-    public MahasiswaModel(View itemView)
+    public MahasiswaViewHolder(View itemView)
     {
         super(itemView);
 

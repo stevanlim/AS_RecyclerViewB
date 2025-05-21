@@ -5,15 +5,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaViewHolder> {
+public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaViewHolder>
+{
     private List<MahasiswaModel> _mahasiswaModelList;
 
-    public MahasiswaAdapter(List<MahasiswaModel> mahasiswaModelList){
+    public MahasiswaAdapter(List<MahasiswaModel> mahasiswaModelList)
+    {
         this._mahasiswaModelList = mahasiswaModelList;
     }
 
@@ -24,22 +27,21 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaViewHolder> 
 
     @NonNull
     @Override
-    public MahasiswaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
-    {
+    public MahasiswaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View v = inflater.inflate(R.layout.list_mahasiswa, parent, false);
         return new MahasiswaViewHolder(v);
     }
+
     @Override
-    public void onBindViewHolder(@NonNull MahasiswaViewHolder holder, int position)
-    {
+    public void onBindViewHolder(@NonNull MahasiswaViewHolder holder, int position) {
         int no = position + 1;
         holder._noTextView.setText(no + ".");
 
         MahasiswaModel mm = _mahasiswaModelList.get(position);
 
         holder._jkImageView.setImageResource(R.drawable.boy);
-        if (mm.getJenisKelamin().toLowerCase().equals("perempuan"))
+        if(mm.getJenisKelamin().toLowerCase().equals("perempuan"))
         {
             holder._jkImageView.setImageResource(R.drawable.girl);
         }
@@ -60,14 +62,14 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaViewHolder> 
         {
             holder._jpTextView.setBackgroundColor(Color.RED);
         }
-        else {
+        else
+        {
             holder._jpTextView.setBackgroundColor(Color.GRAY);
         }
     }
 
     @Override
-    public int getItemCount()
-    {
+    public int getItemCount() {
         int count = (_mahasiswaModelList != null) ? _mahasiswaModelList.size() : 0;
         return count;
     }
